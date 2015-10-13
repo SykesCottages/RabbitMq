@@ -1,5 +1,5 @@
 {
-    "name": "skyes/rabbitmq-pecl",
+    "name": "sykes/rabbitmq-pecl",
     "version": "1",
     "description": "RabbitMQ wrapper for pecl extension",
     "license": "proprietary",

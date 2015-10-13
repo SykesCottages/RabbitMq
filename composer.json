@@ -1,5 +1,5 @@
 {
-    "name": "SykesCottagesDev/rabbitmq-pecl",
+    "name": "SykesCottagesDev/RabbitMq",
     "version": "1",
     "description": "RabbitMQ wrapper for pecl extension",
     "license": "proprietary",

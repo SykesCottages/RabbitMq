@@ -20,6 +20,5 @@
         "psr-0": {
             "Sykes\\RabbitMq": "src/"
         }
-    },
-    "minimum-stability": "dev"
+    }
 }

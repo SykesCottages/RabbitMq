@@ -17,8 +17,8 @@
         "php": ">=5.3"
     },
     "autoload": {
-        "psr-0": {
-            "Sykes\\RabbitMq": "src/"
+        "psr-4": {
+            "Sykes\\": ""
         }
     }
 }

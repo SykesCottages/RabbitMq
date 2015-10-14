@@ -36,11 +36,23 @@ class RabbitMq
 
     /**
      * Connect to RabbitMq based on environment
+     *
+     * @param string $host
+     * @param int    $port
+     * @param string $vhost
+     * @param string $login
+     * @param string $password
      */
-    public function connect()
+    public function connect($host = '127.0.0.1', $port = 5672, $vhost = '/', $login = 'guest', $password = 'guest')
     {
         $this->connection = new AMQPConnection(
-        //todo connectiond details
+            [
+                'host'     => $host,
+                'vhost'    => $vhost,
+                'port'     => $port,
+                'login'    => $login,
+                'password' => $password
+            ]
         );
         $this->connection->connect();
         $this->channel  = new AMQPChannel($this->connection);

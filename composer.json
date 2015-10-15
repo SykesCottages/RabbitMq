@@ -14,7 +14,8 @@
         }
     ],
     "require": {
-        "php": ">=5.3"
+        "php": ">=5.3",
+        "videlalvaro/php-amqplib": "2.6.*"
     },
     "autoload": {
         "psr-4": {

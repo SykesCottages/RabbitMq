@@ -34,24 +34,24 @@ class RabbitMq
      */
     private $queue;
 
+    private $host = '127.0.0.1';
+    private $port = 5672;
+    private $username = 'guest';
+    private $password = 'guest';
+    private $vhost = '/';
+
     /**
      * Connect to RabbitMq based on environment
-     *
-     * @param string $host
-     * @param int    $port
-     * @param string $vhost
-     * @param string $login
-     * @param string $password
      */
-    public function connect($host = '127.0.0.1', $port = 5672, $vhost = '/', $login = 'guest', $password = 'guest')
+    public function connect()
     {
         $this->connection = new AMQPConnection(
             [
-                'host'     => $host,
-                'vhost'    => $vhost,
-                'port'     => $port,
-                'login'    => $login,
-                'password' => $password
+                'host'     => $this->host,
+                'vhost'    => $this->vhost,
+                'port'     => $this->port,
+                'login'    => $this->username,
+                'password' => $this->password
             ]
         );
         $this->connection->connect();
@@ -136,5 +136,45 @@ class RabbitMq
         $this->queue->setName($queue);
         $this->queue->purge();
         $this->disconnect();
+    }
+
+    /**
+     * @param string $host
+     */
+    public function setHost($host)
+    {
+        $this->host = $host;
+    }
+
+    /**
+     * @param string $password
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }
+
+    /**
+     * @param int $port
+     */
+    public function setPort($port)
+    {
+        $this->port = $port;
+    }
+
+    /**
+     * @param string $username
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
+
+    /**
+     * @param string $vhost
+     */
+    public function setVhost($vhost)
+    {
+        $this->vhost = $vhost;
     }
 }

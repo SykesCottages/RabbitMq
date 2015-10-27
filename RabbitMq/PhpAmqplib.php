@@ -23,16 +23,21 @@ class PhpAmqplib
      */
     private $channel;
 
+    private $host = '127.0.0.1';
+    private $port = 5672;
+    private $username = 'guest';
+    private $password = 'guest';
+
     /**
      * Connect to RabbitMq based on environment
      */
-    public function connect($host = '127.0.0.1', $port = 5672, $login = 'guest', $password = 'guest')
+    public function connect()
     {
         $this->connection = new AMQPStreamConnection(
-            $host,
-            $port,
-            $login,
-            $password
+            $this->host,
+            $this->port,
+            $this->username,
+            $this->password
         );
 
         $this->channel = $this->connection->channel();
@@ -116,5 +121,37 @@ class PhpAmqplib
         $this->connect();
         $this->channel->queue_purge($queue);
         $this->disconnect();
+    }
+
+    /**
+     * @param string $host
+     */
+    public function setHost($host)
+    {
+        $this->host = $host;
+    }
+
+    /**
+     * @param string $password
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }
+
+    /**
+     * @param int $port
+     */
+    public function setPort($port)
+    {
+        $this->port = $port;
+    }
+
+    /**
+     * @param string $username
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
     }
 }

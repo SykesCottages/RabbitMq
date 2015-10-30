@@ -76,9 +76,9 @@ class RabbitMq
     public function add_to_queue($queue, $message)
     {
         $this->connect();
+        $this->exchange->setName($queue);
         $this->exchange->publish(
-            $message,
-            $queue
+            $message
         );
         $this->disconnect();
     }
